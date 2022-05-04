@@ -1,6 +1,3 @@
-### Hallo Patali
-
-
 ![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/hp1.png)
 
 Hallo Patrali adalah aplikasi penjualan yang diperuntukkan untuk umkm desa yaitu bumdes pada setiap desa.

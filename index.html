@@ -7,6 +7,7 @@
     <title>Ludin Nento (fn-code)</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="github-markdown.css">
 </head>
 <body class="bg-gray-100">
     <div class="w-9/12 flex justify-center mx-auto">
@@ -38,12 +39,12 @@
                 <div>
                     <p class="text-md font-semibold text-gray-800">Social Media</p>
                     <div class="ml-2 mt-2 text-md">
-                        <p><a href="https://github.com/fn-code">Github</a></p>
-                        <p><a href="https://id.linkedin.com/in/ludin-nento-16469494">Linked in</a></p>
-                        <p><a href="https://twitter.com/fncode">Twitter</a></p>
-                        <p><a href="https://www.facebook.com/ludyn.nento">Facebook</a></p>
-                        <p><a href="https://www.instagram.com/ludin.nento/">Instagram</a></p>
-                        <p><a href="https://medium.com/@ludyyn">Medium</a></p>
+                        <p><a class="text-blue-600 hover:text-blue-800" href="https://github.com/fn-code">Github</a></p>
+                        <p><a class="text-blue-600 hover:text-blue-800" href="https://id.linkedin.com/in/ludin-nento-16469494">Linked in</a></p>
+                        <p><a class="text-blue-600 hover:text-blue-800" href="https://twitter.com/fncode">Twitter</a></p>
+                        <p><a class="text-blue-600 hover:text-blue-800" href="https://www.facebook.com/ludyn.nento">Facebook</a></p>
+                        <p><a class="text-blue-600 hover:text-blue-800" href="https://www.instagram.com/ludin.nento/">Instagram</a></p>
+                        <p><a class="text-blue-600 hover:text-blue-800" href="https://medium.com/@ludyyn">Medium</a></p>
                     </div>
                 </div>
 
@@ -87,7 +88,7 @@
                         
                     </div>
                     <div class="exper-conten mt-2">
-                        <ul class="text-sm text-gray-800">
+                        <ul class="text-md font-thin text-gray-900">
                             <li>Mendevelop software absensi api, mobile dan website</li>
                             <li>Mendevelop aplikasi pendataan dan pegelolaan data kependudukan</li>
                             <li>Mendevelop website pemetaan lokasi wifi, dan cctv pemda</li>
@@ -110,7 +111,7 @@
                         
                     </div>
                     <div class="exper-conten mt-2">
-                        <ul class="text-sm text-gray-800">
+                        <ul class="text-md font-thin text-gray-900">
                             <li>Mendevelop aplikasi android</li>
                             <li>Mendevelop website menggunakan nodejs dan angular 2.</li>
                             <li>Implementasi Firebase Database, Push Notification, dan firebase authtentication , dan google maps api.</li>
@@ -130,7 +131,7 @@
                         
                     </div>
                     <div class="exper-conten mt-2">
-                        <ul class="text-sm text-gray-800">
+                        <ul class="text-md font-thin text-gray-900">
                             <li>Mendevelop Website Administration</li>
                             <li>Merancang sebuah database tentang
                             administrasi</li>
@@ -232,6 +233,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.0/dist/showdown.min.js"></script>
     <script>
+        let converter = new showdown.Converter();
         async function getAppConfig() {
             let url = 'https://fn-code.github.io/portofolio/app.json';
             try {
@@ -252,12 +254,17 @@
         }
 
         async function renderProjects() {
+            let container = document.querySelector('.projects-container');
             let app = await getAppConfig();
             let html = '';
        
-            app.projects.forEach(pr => {
-                // let mrkdown = await getMarkdown(pr.content);
-                console.log(pr);
+
+            app.projects.forEach(async pr => {
+                let res = await getMarkdown(pr.content);
+                let mrkdown = converter.makeHtml(res);
+                console.log(pr.name);
+                console.log(mrkdown);
+                
 
                 let htmlSegment = `<div>
                         <div class="flex bg-white p-4 border border-gray-300 justify-between cursor-pointer">
@@ -266,14 +273,17 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                               </svg>
                         </div>
-                        <div class="desc p-4 bg-gray-50"></div>
+                        <div class="desc p-4 bg-gray-50">${mrkdown}</div>
                     </div>`;
 
                 html += htmlSegment;
+
+                container.insertAdjacentHTML("beforebegin", html);
             });
 
-            let container = document.querySelector('.projects-container');
-            container.innerHTML = html;
+            
+
+            
         }
 
         renderProjects();
