@@ -1,4 +1,4 @@
-![Tikades Dashboard](../img/tikadesbox-login.png)
+![Tikades Dashboard](https://fn-code.github.io/portofolio/img/tikadesbox-login.png)
 
 Tikadesbox adalah apilkasi untuk pemantauan laporan darurat masyarakat dan juga aplikasi untuk melaukan streaming audio.
 sistem aplikasi tikadesbox terdiri dari perankat ESP sebagai perangkat yang akan mengirimkan laporan darurat, dan juga sebagai perangkat yang akan memurat audio streaming dari aplikasi tikadesbox. 
@@ -10,6 +10,6 @@ Untuk Firmware menggunakan C++, Gateway menggunakan GO/Golang, sedangkan untuk t
 
 #### Contoh tampilan aplikasi
 
-![Tikades bantuan](../img/tikadesbox-dashboard.png)
-![Tikades bantuan](../img/tikadesbox-streaming.png)
-![Tikades bantuan](../img/tikadesbox-log.png)
+![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-dashboard.png)
+![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-streaming.png)
+![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-log.png)
