@@ -1,16 +1,17 @@
 {
     "projects": [
         {
-            "name": "Hallo Patali - Aplikasi Penjualan untuk UMKM Atau Bumdes",
-            "content": "https://fn-code.github.io/portofolio/projects/hallopatali-bumdes-umkm.md"
-        },
-        {
             "name": "Tikades - Aplikasi Pengolahan Data Desa",
             "content": "https://fn-code.github.io/portofolio/projects/tikades.md"
         },
         {
             "name": "Tikadesbox - IoT Streaming audio Dan Laporan Darurat",
             "content": "https://fn-code.github.io/portofolio/projects/tikadesbox.md"
+        },
+        {
+            "name": "Hallo Patali - Aplikasi Penjualan untuk UMKM Atau Bumdes",
+            "content": "https://fn-code.github.io/portofolio/projects/hallopatali-bumdes-umkm.md"
         }
+       
     ]
 }
