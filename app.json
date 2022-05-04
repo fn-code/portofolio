@@ -11,6 +11,14 @@
         {
             "name": "Hallo Patali - Aplikasi Penjualan untuk UMKM Atau Bumdes",
             "content": "https://fn-code.github.io/portofolio/projects/hallopatali-bumdes-umkm.md"
+        },
+        {
+            "name": "Acaraku - Aplikasi Registrasi Atau Pembuatan Acara",
+            "content": "https://fn-code.github.io/portofolio/projects/acaraku.md"
+        },
+        {
+            "name": "Lamahu Command Center - Aplikasi Pemantauan Laporan Dan Monitoring Perangkat IoT",
+            "content": "https://fn-code.github.io/portofolio/projects/lamahu-command-center.md"
         }
        
     ]
