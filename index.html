@@ -230,7 +230,7 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/<version tag>/showdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.0/dist/showdown.min.js"></script>
     <script>
         async function getAppConfig() {
             let url = 'https://fn-code.github.io/portofolio/app.json';
@@ -242,11 +242,23 @@
             }
         }
 
+        async function getMarkdown(url) {
+            try {
+                let res = await fetch(url);
+                return await res.text();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
         async function renderProjects() {
             let app = await getAppConfig();
             let html = '';
        
             app.projects.forEach(pr => {
+                // let mrkdown = await getMarkdown(pr.content);
+                console.log(pr);
+
                 let htmlSegment = `<div>
                         <div class="flex bg-white p-4 border border-gray-300 justify-between cursor-pointer">
                             <p class="font-semibold">${pr.name}</p>
@@ -254,9 +266,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                               </svg>
                         </div>
-                        <div class="desc p-4 bg-gray-50">
-                            this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions
-                        </div>
+                        <div class="desc p-4 bg-gray-50"></div>
                     </div>`;
 
                 html += htmlSegment;
