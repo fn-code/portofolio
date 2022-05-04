@@ -1,4 +1,4 @@
-![Tikades Dashboard](../img/tikades-dashboard.png)
+![Tikades Dashboard](https://fn-code.github.io/portofolio/img/tikades-dashboard.png)
 
 Tikades adalah aplikasi yang berfungsi untuk melakukan pengolahan data kependudukan, bantuan, kelompok, pembuatan surat dan informasi desa.
 
@@ -14,6 +14,6 @@ Untuk api sepenuhnya menggunakan bahasa pemograman GO.
 
 #### Contoh tampilan aplikasi
 
-![Tikades bantuan](../img/tikades-bantuan.png)
+![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikades-bantuan.png)
 
-![Tikades Web Desa](../img/tikades-webdes.png)
+![Tikades Web Desa](https://fn-code.github.io/portofolio/img/tikades-webdes.png)
