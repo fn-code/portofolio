@@ -6,10 +6,14 @@ sistem aplikasi tikadesbox terdiri dari perankat ESP sebagai perangkat yang akan
 #### Bagian Yang Dibuat
 Pada Aplikasi tikades box saya bertanggunjawab dalam pembuatan firmware ESP, Gateway untuk komunikasi dengan perangkat, dan aplikasi tikadesbox
 
-Untuk Firmware menggunakan C++, Gateway menggunakan GO/Golang, sedangkan untuk tikadesbox menggunakan NextJS
+Untuk Firmware menggunakan C++, Gateway menggunakan GO/Golang, sedangkan untuk tikadesbox menggunakan NextJS DAn React.js
 
 #### Contoh tampilan aplikasi
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-dashboard.png)
+
+
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-streaming.png)
+
+
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-log.png)

@@ -256,15 +256,10 @@
         async function renderProjects() {
             let container = document.querySelector('.projects-container');
             let app = await getAppConfig();
-            let html = '';
-       
-
+    
             app.projects.forEach(async pr => {
                 let res = await getMarkdown(pr.content);
-                let mrkdown = converter.makeHtml(res);
-                console.log(pr.name);
-                console.log(mrkdown);
-                
+                let mrkdown = converter.makeHtml(res);                
 
                 let htmlSegment = `<div>
                         <div class="flex bg-white p-4 border border-gray-300 justify-between cursor-pointer">
@@ -276,9 +271,8 @@
                         <div class="desc p-4 bg-gray-50">${mrkdown}</div>
                     </div>`;
 
-                html += htmlSegment;
 
-                container.insertAdjacentHTML("beforebegin", html);
+                container.insertAdjacentHTML("beforebegin", htmlSegment);
             });
 
             
