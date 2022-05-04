@@ -12,8 +12,10 @@ Untuk Firmware menggunakan C++, Gateway menggunakan GO/Golang, sedangkan untuk t
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-dashboard.png)
 
+<hr>
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-streaming.png)
 
+<hr>
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-log.png)

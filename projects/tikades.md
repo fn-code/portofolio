@@ -16,5 +16,6 @@ Untuk api sepenuhnya menggunakan bahasa pemograman GO.
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikades-bantuan.png)
 
+<hr>
 
 ![Tikades Web Desa](https://fn-code.github.io/portofolio/img/tikades-webdes.png)
