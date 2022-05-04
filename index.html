@@ -219,18 +219,8 @@
 
             <div class="w-full space-y-4 mb-4">
                 <div class="w-full font-semibold text-lg">Projects</div>
-                <div>
-                    <div>
-                        <div class="flex bg-white p-4 border border-gray-300 justify-between">
-                            <p class="font-semibold">Membuat Aplikasi Pengolahan Data Kependudukan</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                              </svg>
-                        </div>
-                        <div class="desc p-4 bg-gray-50 hidden">
-                            this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions
-                        </div>
-                    </div>
+                <div class="projects-container">
+                    
                 </div>
             </div>
 
@@ -242,6 +232,42 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/<version tag>/showdown.min.js"></script>
     <script>
+        async function getAppConfig() {
+            let url = 'https://fn-code.github.io/portofolio/app.json';
+            try {
+                let res = await fetch(url);
+                return await res.json();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function renderProjects() {
+            let app = await getAppConfig();
+            let html = '';
+       
+            app.projects.forEach(pr => {
+                let htmlSegment = `<div>
+                        <div class="flex bg-white p-4 border border-gray-300 justify-between cursor-pointer">
+                            <p class="font-semibold">${pr.name}</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                        </div>
+                        <div class="desc p-4 bg-gray-50">
+                            this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions this is app desc preview of project descriptions
+                        </div>
+                    </div>`;
+
+                html += htmlSegment;
+            });
+
+            let container = document.querySelector('.projects-container');
+            container.innerHTML = html;
+        }
+
+        renderProjects();
+
     </script>
 </body>
 </html>
