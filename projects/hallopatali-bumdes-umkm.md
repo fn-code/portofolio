@@ -1,9 +1,8 @@
 ![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/hp1.png)
 
-Hallo Patrali adalah aplikasi penjualan yang diperuntukkan untuk umkm desa yaitu bumdes pada setiap desa.
+**Hallo Patali** is an e-commerce platform built for village-owned enterprises (*Bumdes*) and micro, small, and medium enterprises (*UMKM*).
 
-Aplikasi ini dioprasikan oleh dinas perindak bekerja sama dengan Bumdes Lamahu Multimedia. Aplikasi diluncurkan pada saat pandemi covid-19 tahun 2020.
-hallopatali terdiri dari web admin untuk pelapak atau umkm, web admin untuk administrator, mobile andorid untuk kurir bumdes atau umkm, dan mobile android untuk pengguna dalam mealukan pembelian barang dari umkm.
+The application was operated by the local trade department in partnership with Bumdes Lamahu Multimedia, and launched during the COVID-19 pandemic in 2020 to help local merchants keep selling while in-person trade was restricted. The platform includes a merchant web admin panel, an administrator web panel, an Android courier app for Bumdes/UMKM delivery staff, and an Android shopping app for end customers.
 
 <iframe
     width="640"

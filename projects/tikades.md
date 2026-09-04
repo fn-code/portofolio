@@ -1,18 +1,14 @@
 ![Tikades Dashboard](https://fn-code.github.io/portofolio/img/tikades-dashboard.png)
 
-Tikades adalah aplikasi yang berfungsi untuk melakukan pengolahan data kependudukan, bantuan, kelompok, pembuatan surat dan informasi desa.
+**Tikades** is a comprehensive platform for managing village (*desa*) administrative data, including population records, social assistance (*bantuan*) programs, community groups, official letter generation, and general village information.
 
-Tikades Aplikasi terdiri dari aplikasi berbasisweb untuk petugas desa, api mobile dan aplikasi mobile android untuk masyarakat dan petugas desa.
+The system consists of a web application for village officers, a mobile REST API, and an Android app used by both residents and officers.
 
-#### Bagian Yang Dibuat
+#### Role & Contributions
 
-Pada aplikasi tikades saya terlibat dalam pembuatan beberapa modul dalam website sperti modul bantuan, website profile desa, pembuatan surat, dan lain-lain. 
+I contributed to several web modules, including social assistance management, the village profile page, and official letter generation. I was fully responsible for the backend REST API, built entirely in **Go**, which covers user authentication, letter issuance, and community emergency reporting.
 
-dan untuk API tikades saya terlibat sepenuhnya dalam pembuatan api.
-dalam api terdapat beberapa fitur seperti. Login/Authenticate Pengguna, Pembuatan surat, pelaporan darurat masyarakat dan lain-lain.
-Untuk api sepenuhnya menggunakan bahasa pemograman GO.
-
-#### Contoh tampilan aplikasi
+#### Screenshots
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikades-bantuan.png)
 

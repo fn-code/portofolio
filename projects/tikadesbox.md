@@ -1,26 +1,23 @@
-![Tikades Dashboard](https://fn-code.github.io/portofolio/img/tikadesbox-login.png)
+![Tikadesbox Login](https://fn-code.github.io/portofolio/img/tikadesbox-login.png)
 
-Tikadesbox adalah apilkasi untuk pemantauan laporan darurat masyarakat dan juga aplikasi untuk melaukan streaming audio.
-sistem aplikasi tikadesbox terdiri dari perankat ESP sebagai perangkat yang akan mengirimkan laporan darurat, dan juga sebagai perangkat yang akan memurat audio streaming dari aplikasi tikadesbox. 
+**Tikadesbox** is an IoT-based system for monitoring community emergency reports and streaming audio alerts. It combines an ESP32 device — which sends emergency reports and streams audio broadcasts — with a companion web application.
 
-#### Bagian Yang Dibuat
-Pada Aplikasi tikades box saya bertanggunjawab dalam pembuatan firmware ESP, Gateway untuk komunikasi dengan perangkat, dan aplikasi tikadesbox
+#### Role & Contributions
 
-Untuk Firmware menggunakan C++, Gateway menggunakan GO/Golang, sedangkan untuk tikadesbox menggunakan NextJS DAn React.js
+I was responsible for the ESP firmware, the communication gateway, and the Tikadesbox web application. The firmware was built in **C++**, the gateway in **Go**, and the web application using **Next.js** and **React**.
 
-#### Contoh tampilan aplikasi
+#### Screenshots
 
-
-![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-maps.png)
+![Tikadesbox maps](https://fn-code.github.io/portofolio/img/tikadesbox-maps.png)
 
 <hr>
 
-![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-dashboard.png)
+![Tikadesbox dashboard](https://fn-code.github.io/portofolio/img/tikadesbox-dashboard.png)
 
 <hr>
 
-![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-streaming.png)
+![Tikadesbox streaming](https://fn-code.github.io/portofolio/img/tikadesbox-streaming.png)
 
 <hr>
 
-![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikadesbox-log.png)
+![Tikadesbox log](https://fn-code.github.io/portofolio/img/tikadesbox-log.png)

@@ -1,7 +1,6 @@
-![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/command-center1.png)
+![Lamahu Command Center](https://fn-code.github.io/portofolio/img/command-center1.png)
 
-Lamahu command center adalah aplikasi untuk memonitoring laporan darurat, streaming pemberitahuan audio, monitoring status perangkat mikrokontroller pada tiang/smartpole.
-
+**Lamahu Command Center** is a monitoring platform for tracking community emergency reports, broadcasting audio announcements, and monitoring the status of microcontroller-based devices installed on smart poles (*smartpole*) across the city.
 
 <iframe
     width="640"
@@ -13,12 +12,10 @@ Lamahu command center adalah aplikasi untuk memonitoring laporan darurat, stream
 >
 </iframe>
 
-#### Bagian Yang Dibuat
-Pada aplikasi ini saya terlibat dalam pembuatan firmware untuk mikrokontroler, gateway untuk komunikasi degan mikrokontroller, dan streaming audio ke perangkat.
+#### Role & Contributions
 
-untuk firmware perangkat menggunakan bahasa pemoggraman C++, dan untuk gateway menggunakan Go/Golang
+I was responsible for the microcontroller firmware, the communication gateway, and the audio streaming pipeline to the devices. The firmware was built in **C++**, and the gateway in **Go**.
 
-#### Contoh tampilan aplikasi
+#### Screenshots
 
-![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/command-center2.png)
-
+![Lamahu Command Center screenshot](https://fn-code.github.io/portofolio/img/command-center2.png)

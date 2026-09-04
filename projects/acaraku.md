@@ -1,20 +1,19 @@
-![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/acaraku2.png)
+![Acaraku Cover](https://fn-code.github.io/portofolio/img/acaraku2.png)
 
-acaraku adalah aplikasi untuk pembuatan form registrasi atau pendaftaran, acara atau event.
-aplikasi ini terintegrasi dengan aplikasi mobile android, dimana pengguna melakukan registrasi dan verifikasi kehadiran dalam acara atau event hanya dengan melakukan scanning barcode. barcode akan dikirimkan ke aplikasi/email pengguna jika sudah melakukan registrasi
+**Acaraku** is an event registration platform for creating sign-up and registration forms for events. It integrates with a companion Android app, allowing attendees to register and verify attendance simply by scanning a barcode — which is generated and delivered to the attendee's app or email upon successful registration.
 
-#### Bagian Yang Dibuat
-pada aplikasi ini saya terlibat dalam pembuatan API untuk mobile, dan beberapa modul untuk web admin pengolahan registrasi pengguna
-untuk api saya menggunakan bahasa pemoggraman GO/Golang
+#### Role & Contributions
 
-#### Contoh tampilan aplikasi
+I built the mobile REST API and several web admin modules for managing attendee registrations. The API was developed entirely in **Go**.
 
-![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/acaraku3.png)
+#### Screenshots
 
-<hr>
-
-![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/acaraku4.png)
+![Acaraku screenshot](https://fn-code.github.io/portofolio/img/acaraku3.png)
 
 <hr>
 
-![Hallo Patali Cover](https://fn-code.github.io/portofolio/img/acaraku5.png)
+![Acaraku screenshot](https://fn-code.github.io/portofolio/img/acaraku4.png)
+
+<hr>
+
+![Acaraku screenshot](https://fn-code.github.io/portofolio/img/acaraku5.png)

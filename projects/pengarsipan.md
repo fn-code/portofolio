@@ -1,11 +1,10 @@
-Aplikasi digunakan untuk proses pengarsipan dokumen masuk dan dokumen keluar pada sebuah instansi. pengarsipan dapat dilakukan berdasarkan tiap bidang atau bagian yang terdapat pada sebuah instansi.
-Aplikasi dapat membantu dalam pencarian dokument instansi atau perusahaan dengan cepat.
+**Document Archiving System** is used to manage incoming and outgoing documents within a government institution, organized by department or division. It enables fast, reliable document search across the institution.
 
-#### Bagian Yang Dibuat
-Pada aplikasi ini saya terlibat dalam semua bagian dalam aplikasi.
-Aplikasi dikembangkan menggunakan bahasa pemoggraman Go/Golang.
+#### Role & Contributions
 
-#### Contoh tampilan aplikasi
+I was involved in every part of this application, which was built entirely in **Go**.
+
+#### Screenshots
 
 ![Pengarsipan 1](https://fn-code.github.io/portofolio/img/pengarsipan1.png)
 

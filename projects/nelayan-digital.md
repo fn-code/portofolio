@@ -1,24 +1,23 @@
-![Pengarsipan 1](https://fn-code.github.io/portofolio/img/nd1.png)
+![Nelayan Digital](https://fn-code.github.io/portofolio/img/nd1.png)
 
-Protoype Aplikasi Monitoring Sensor data pada perangkat Nelayan Digital menggunakan teknologi NB-Iot yang dimiliki oleh Telkomsel
+**Nelayan Digital** is a sensor-monitoring prototype for a digital fisherman's device, built on Telkomsel's **NB-IoT** network.
 
-#### Bagian Yang Dibuat
-Membuat Firmware untuk Prototype perangkat menggunakan teknologi NB-Iot Telkomsel, Menerima dan menampilkan data sensor yang terdapat pada perangkat/mikrokontroler.
+#### Role & Contributions
 
-Untuk prototype firmware menggunakan bahasa pemoggraman C++, dan untuk halaman monitoring menggunakan VueJs
+I developed the prototype device firmware using Telkomsel's NB-IoT technology, and built the monitoring dashboard that receives and displays sensor data from the microcontroller. The firmware was written in **C++**, and the monitoring dashboard in **Vue.js**.
 
-#### Contoh tampilan aplikasi
+#### Screenshots
 
-![Pengarsipan 1](https://fn-code.github.io/portofolio/img/nd2.png)
-
-<hr>
-
-![Pengarsipan 1](https://fn-code.github.io/portofolio/img/nd3.png)
+![Nelayan Digital screenshot](https://fn-code.github.io/portofolio/img/nd2.png)
 
 <hr>
 
-![Pengarsipan 1](https://fn-code.github.io/portofolio/img/nd4.png)
+![Nelayan Digital screenshot](https://fn-code.github.io/portofolio/img/nd3.png)
 
 <hr>
 
-![Pengarsipan 1](https://fn-code.github.io/portofolio/img/nd5.jpg)
+![Nelayan Digital screenshot](https://fn-code.github.io/portofolio/img/nd4.png)
+
+<hr>
+
+![Nelayan Digital screenshot](https://fn-code.github.io/portofolio/img/nd5.jpg)
