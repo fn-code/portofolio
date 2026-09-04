@@ -16,6 +16,10 @@
 
 I was responsible for the microcontroller firmware, the communication gateway, and the audio streaming pipeline to the devices. The firmware was built in **C++**, and the gateway in **Go**.
 
+#### Stack
+
+<div class="stack-badges"><code>C++</code> <code>Go</code></div>
+
 #### Screenshots
 
 ![Lamahu Command Center screenshot](https://fn-code.github.io/portofolio/img/command-center2.png)

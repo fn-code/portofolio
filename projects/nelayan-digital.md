@@ -6,6 +6,10 @@
 
 I developed the prototype device firmware using Telkomsel's NB-IoT technology, and built the monitoring dashboard that receives and displays sensor data from the microcontroller. The firmware was written in **C++**, and the monitoring dashboard in **Vue.js**.
 
+#### Stack
+
+<div class="stack-badges"><code>C++</code> <code>Vue.js</code> <code>NB-IoT</code></div>
+
 #### Screenshots
 
 ![Nelayan Digital screenshot](https://fn-code.github.io/portofolio/img/nd2.png)

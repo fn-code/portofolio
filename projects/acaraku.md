@@ -6,6 +6,10 @@
 
 I built the mobile REST API and several web admin modules for managing attendee registrations. The API was developed entirely in **Go**.
 
+#### Stack
+
+<div class="stack-badges"><code>Go</code> <code>REST API</code></div>
+
 #### Screenshots
 
 ![Acaraku screenshot](https://fn-code.github.io/portofolio/img/acaraku3.png)

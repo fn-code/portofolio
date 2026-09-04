@@ -8,6 +8,10 @@ The system consists of a web application for village officers, a mobile REST API
 
 I contributed to several web modules, including social assistance management, the village profile page, and official letter generation. I was fully responsible for the backend REST API, built entirely in **Go**, which covers user authentication, letter issuance, and community emergency reporting.
 
+#### Stack
+
+<div class="stack-badges"><code>Go</code> <code>REST API</code></div>
+
 #### Screenshots
 
 ![Tikades bantuan](https://fn-code.github.io/portofolio/img/tikades-bantuan.png)

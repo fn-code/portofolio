@@ -104,6 +104,27 @@
             width: 5rem;
             object-fit: cover;
         }
+
+        /* stack badges: the "Stack" section in project markdown wraps tech tags in .stack-badges */
+        .project-desc .stack-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+        }
+        .project-desc .stack-badges code {
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            border: 1px solid rgb(229 231 235);
+            background: transparent;
+            color: rgb(75 85 99);
+        }
+        .dark .project-desc .stack-badges code {
+            border-color: rgb(31 41 55);
+            color: rgb(156 163 175);
+        }
     </style>
 </head>
 <body class="font-mono bg-gray-50 text-gray-700 dark:bg-[#0b0d12] dark:text-gray-300 transition-colors duration-200">
@@ -141,8 +162,15 @@
                 <img src="img/3u_WojzP_400x400.jpg" alt="Ludin Nento" class="h-20 w-20 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-800">
                 <div class="mt-4 space-y-3">
                     <div class="-space-y-0.5">
-                        <p class="font-semibold text-base text-gray-900 dark:text-gray-100">Khairudin Firdaus Nento</p>
+                        <h1 class="font-semibold text-base text-gray-900 dark:text-gray-100">Khairudin Firdaus Nento</h1>
                         <p class="text-sm text-gray-500">Ludin Nento</p>
+                    </div>
+                    <div class="inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-2.5 py-1 text-[11px] font-medium text-green-600 dark:text-green-400">
+                        <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                        </span>
+                        <span>Open to work</span>
                     </div>
                     <p class="text-xs leading-relaxed text-gray-500 dark:text-gray-400">Experienced Software Engineer with a demonstrated history of working in the computer software industry. Skilled in Go, Android, C/C++, PHP, HTML and CSS and other. Strong engineering professional with a Bachelor of Computer Information System focused in Informatics from Universitas Negeri Gorontalo.</p>
                     <div class="space-y-1.5 pt-1">
@@ -638,9 +666,10 @@
             let app = await getAppConfig();
             if (!app || !app.projects) return;
 
-            app.projects.forEach(async (pr, index) => {
-                let res = await getMarkdown(pr.content);
-                let mrkdown = converter.makeHtml(res);
+            let markdowns = await Promise.all(app.projects.map((pr) => getMarkdown(pr.content)));
+
+            app.projects.forEach((pr, index) => {
+                let mrkdown = converter.makeHtml(markdowns[index] || '');
 
                 let htmlSegment = `<details class="group py-3 ${index === 0 ? 'first:pt-0' : ''}">
                         <summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">

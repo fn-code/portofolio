@@ -4,6 +4,10 @@
 
 I was involved in every part of this application, which was built entirely in **Go**.
 
+#### Stack
+
+<div class="stack-badges"><code>Go</code></div>
+
 #### Screenshots
 
 ![Pengarsipan 1](https://fn-code.github.io/portofolio/img/pengarsipan1.png)

@@ -6,6 +6,10 @@
 
 I was responsible for the ESP firmware, the communication gateway, and the Tikadesbox web application. The firmware was built in **C++**, the gateway in **Go**, and the web application using **Next.js** and **React**.
 
+#### Stack
+
+<div class="stack-badges"><code>C++</code> <code>Go</code> <code>Next.js</code> <code>React</code></div>
+
 #### Screenshots
 
 ![Tikadesbox maps](https://fn-code.github.io/portofolio/img/tikadesbox-maps.png)
