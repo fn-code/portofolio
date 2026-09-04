@@ -99,6 +99,8 @@
                 <a href="#home" class="h-8 w-8 rounded-md bg-accent text-gray-900 font-bold flex items-center justify-center text-sm">LN</a>
                 <nav class="hidden sm:flex items-center gap-5 text-xs uppercase tracking-widest">
                     <a href="#home" class="text-gray-900 dark:text-gray-100 border-b-2 border-accent pb-0.5">Home</a>
+                    <a href="#github-activity" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Activity</a>
+                    <a href="#pinned-repos" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Repos</a>
                     <a href="#experience" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Experience</a>
                     <a href="#projects" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Projects</a>
                     <a href="#certificates" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Certificates</a>
@@ -204,6 +206,62 @@
         <main class="lg:col-span-6 space-y-10">
             <section id="home" class="scroll-mt-24">
                 <img src="img/bitmap.png" alt="Ludin Nento" class="w-full rounded-lg border border-gray-200 dark:border-gray-800">
+            </section>
+
+            <section id="github-activity" class="scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-3 pb-2 border-b border-gray-200 dark:border-gray-800">GitHub Activity</h2>
+                <div class="rounded-lg border border-gray-200 dark:border-gray-800 overflow-x-auto">
+                    <img src="https://ghchart.rshah.org/216e39/fn-code" alt="Ludin Nento's GitHub contribution activity graph" class="w-full min-w-[600px] block" loading="lazy">
+                </div>
+            </section>
+
+            <section id="pinned-repos" class="scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-3 pb-2 border-b border-gray-200 dark:border-gray-800">Pinned Repositories</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="https://github.com/fn-code/esp-idf-clion" target="_blank" rel="noopener" class="group block rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-accent transition-colors">
+                        <div class="flex items-center gap-1.5 text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-gray-400" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+                            <span>esp-idf-clion</span>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Configuration and setup of CLion with ESP-IDF.</p>
+                    </a>
+
+                    <a href="https://github.com/fn-code/goid" target="_blank" rel="noopener" class="group block rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-accent transition-colors">
+                        <div class="flex items-center gap-1.5 text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-gray-400" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+                            <span>goid</span>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Generates random IDs, similar to Firebase push keys.</p>
+                        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-gray-500">
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#00ADD8]"></span>
+                            <span>Go</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/fn-code/govals" target="_blank" rel="noopener" class="group block rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-accent transition-colors">
+                        <div class="flex items-center gap-1.5 text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-gray-400" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+                            <span>govals</span>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">A Go library for data validation.</p>
+                        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-gray-500">
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#00ADD8]"></span>
+                            <span>Go</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/fn-code/vote-svc" target="_blank" rel="noopener" class="group block rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-accent transition-colors">
+                        <div class="flex items-center gap-1.5 text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-gray-400" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+                            <span>vote-svc</span>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">A simple voting service REST API built with Rust, following clean architecture principles.</p>
+                        <div class="mt-3 flex items-center gap-1.5 text-[11px] text-gray-500">
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#dea584]"></span>
+                            <span>Rust</span>
+                        </div>
+                    </a>
+                </div>
             </section>
 
             <section id="experience" class="scroll-mt-24">
