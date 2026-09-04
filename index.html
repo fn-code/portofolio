@@ -7,6 +7,22 @@
     <meta name="description" content="Ludin Nento — Software Engineer. Go, Android, C/C++, PHP, IoT.">
     <title>Ludin Nento (fn-code)</title>
 
+    <link rel="icon" type="image/jpeg" href="img/3u_WojzP_400x400.jpg">
+    <link rel="canonical" href="https://fn-code.github.io/portofolio/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fn-code.github.io/portofolio/">
+    <meta property="og:title" content="Ludin Nento (fn-code) — Software Engineer">
+    <meta property="og:description" content="Software Engineer with a demonstrated history in Go, Android, C/C++, PHP, and IoT. Experience, projects, and certifications.">
+    <meta property="og:image" content="https://fn-code.github.io/portofolio/img/bitmap.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ludin Nento (fn-code) — Software Engineer">
+    <meta name="twitter:description" content="Software Engineer with a demonstrated history in Go, Android, C/C++, PHP, and IoT. Experience, projects, and certifications.">
+    <meta name="twitter:image" content="https://fn-code.github.io/portofolio/img/bitmap.png">
+
     <!-- avoid flash of wrong theme -->
     <script>
         (function () {
@@ -101,6 +117,7 @@
                     <a href="#home" class="text-gray-900 dark:text-gray-100 border-b-2 border-accent pb-0.5">Home</a>
                     <a href="#github-activity" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Activity</a>
                     <a href="#pinned-repos" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Repos</a>
+                    <a href="#blog" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Blog</a>
                     <a href="#experience" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Experience</a>
                     <a href="#projects" class="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 pb-0.5">Projects</a>
                 </nav>
@@ -266,6 +283,13 @@
                             <span>Rust</span>
                         </div>
                     </a>
+                </div>
+            </section>
+
+            <section id="blog" class="scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-3 pb-2 border-b border-gray-200 dark:border-gray-800">Blog</h2>
+                <div class="blog-container divide-y divide-gray-200 dark:divide-gray-800">
+                    <p class="blog-loading text-xs text-gray-500 dark:text-gray-400 py-2">Loading latest posts…</p>
                 </div>
             </section>
 
@@ -633,6 +657,37 @@
         }
 
         renderProjects();
+
+        async function renderBlog() {
+            let container = document.querySelector('.blog-container');
+            let loading = document.querySelector('.blog-loading');
+
+            try {
+                let res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://medium.com/feed/@ludyyn'));
+                let data = await res.json();
+                if (data.status !== 'ok' || !data.items || !data.items.length) throw new Error('no posts');
+
+                loading.remove();
+
+                data.items.slice(0, 5).forEach((post, index) => {
+                    let date = new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                    let title = post.title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+                    let htmlSegment = `<a href="${post.link}" target="_blank" rel="noopener" class="group block py-3 ${index === 0 ? 'first:pt-0' : ''}">
+                            <p class="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-accent">${title}</p>
+                            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">${date}</p>
+                        </a>`;
+
+                    container.insertAdjacentHTML('beforeend', htmlSegment);
+                });
+            } catch (error) {
+                console.log(error);
+                loading.textContent = 'Unable to load posts right now.';
+                container.insertAdjacentHTML('beforeend', `<a href="https://medium.com/@ludyyn" target="_blank" rel="noopener" class="block py-2 text-xs text-accent hover:underline">Visit Medium profile →</a>`);
+            }
+        }
+
+        renderBlog();
     </script>
 </body>
 </html>
