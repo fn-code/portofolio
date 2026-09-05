@@ -7,7 +7,7 @@
     <meta name="description" content="Ludin Nento — Software Engineer. Go, Android, C/C++, PHP, IoT.">
     <title>Ludin Nento (fn-code)</title>
 
-    <link rel="icon" type="image/jpeg" href="img/3u_WojzP_400x400.jpg">
+    <link rel="icon" type="image/jpeg" href="img/profile-photo.jpg">
     <link rel="canonical" href="https://fn-code.github.io/portofolio/">
 
     <!-- Open Graph -->
@@ -72,6 +72,35 @@
         .gh-chart-scroll::-webkit-scrollbar-track { background: transparent; }
         .gh-chart-scroll::-webkit-scrollbar-thumb { background-color: rgb(209 213 219); border-radius: 9999px; }
         .dark .gh-chart-scroll::-webkit-scrollbar-thumb { background-color: rgb(55 65 81); }
+
+        /* github activity heatmap: real GitHub-style calendar (month row, day labels, level squares) */
+        .gh-heatmap {
+            display: grid;
+            grid-template-columns: 22px 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas: ". months" "days cells";
+            row-gap: 4px;
+            column-gap: 6px;
+        }
+        .gh-heatmap .gh-months { grid-area: months; display: grid; column-gap: 3px; }
+        .gh-heatmap .gh-days { grid-area: days; display: grid; grid-template-rows: repeat(7, 11px); gap: 3px; }
+        .gh-heatmap .gh-cells { grid-area: cells; display: grid; grid-template-rows: repeat(7, 11px); gap: 3px; }
+        .gh-month { font-size: 10px; line-height: 1; color: rgb(156 163 175); white-space: nowrap; align-self: end; padding-bottom: 4px; }
+        .dark .gh-month { color: rgb(75 85 99); }
+        .gh-daylabel { font-size: 10px; line-height: 1; color: rgb(156 163 175); display: flex; align-items: center; }
+        .dark .gh-daylabel { color: rgb(75 85 99); }
+        .gh-cell { width: 11px; height: 11px; border-radius: 2px; }
+        .gh-legend-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; }
+        .gh-level-0, .gh-legend-swatch.gh-level-0 { background-color: #ebedf0; }
+        .gh-level-1, .gh-legend-swatch.gh-level-1 { background-color: #9be9a8; }
+        .gh-level-2, .gh-legend-swatch.gh-level-2 { background-color: #40c463; }
+        .gh-level-3, .gh-legend-swatch.gh-level-3 { background-color: #30a14e; }
+        .gh-level-4, .gh-legend-swatch.gh-level-4 { background-color: #216e39; }
+        .dark .gh-level-0, .dark .gh-legend-swatch.gh-level-0 { background-color: #161b22; }
+        .dark .gh-level-1, .dark .gh-legend-swatch.gh-level-1 { background-color: #0e4429; }
+        .dark .gh-level-2, .dark .gh-legend-swatch.gh-level-2 { background-color: #006d32; }
+        .dark .gh-level-3, .dark .gh-legend-swatch.gh-level-3 { background-color: #26a641; }
+        .dark .gh-level-4, .dark .gh-legend-swatch.gh-level-4 { background-color: #39d353; }
 
         /* project screenshots: the header/cover image (first in the description) stays large;
            any additional screenshots render as a small thumbnail gallery. click either to open full size in the lightbox */
@@ -171,7 +200,7 @@
         <!-- LEFT: PROFILE / SOCIAL / SKILLS -->
         <aside class="lg:col-span-3 space-y-8 lg:sticky lg:top-24">
             <section>
-                <img id="profile-photo" src="img/3u_WojzP_400x400.jpg" alt="Ludin Nento" class="h-40 w-40 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-800 cursor-zoom-in transition-opacity hover:opacity-80">
+                <img id="profile-photo" src="img/profile-photo.jpg" alt="Ludin Nento" class="h-40 w-40 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-800 cursor-zoom-in transition-opacity hover:opacity-80">
                 <div class="mt-4 space-y-3">
                     <div class="-space-y-0.5">
                         <h1 class="font-semibold text-xl text-gray-900 dark:text-gray-100">Khairudin Firdaus Nento</h1>
@@ -210,42 +239,6 @@
             </section>
 
             <section>
-                <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-3">Social</h2>
-                <div class="space-y-1.5 text-xs">
-                    <a class="flex items-center gap-2.5 group text-gray-600 dark:text-gray-400 hover:text-accent" href="https://github.com/fn-code" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
-                        <span class="flex-1">Github</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </a>
-                    <a class="flex items-center gap-2.5 group text-gray-600 dark:text-gray-400 hover:text-accent" href="https://id.linkedin.com/in/ludin-nento-16469494" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
-                        <span class="flex-1">LinkedIn</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </a>
-                    <a class="flex items-center gap-2.5 group text-gray-600 dark:text-gray-400 hover:text-accent" href="https://twitter.com/fncode" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 14-7.496 14-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 0 0 2.46-2.548l-.047-.02z" /></svg>
-                        <span class="flex-1">Twitter</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </a>
-                    <a class="flex items-center gap-2.5 group text-gray-600 dark:text-gray-400 hover:text-accent" href="https://www.facebook.com/ludyn.nento" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 1.746-.287 1.921h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg>
-                        <span class="flex-1">Facebook</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </a>
-                    <a class="flex items-center gap-2.5 group text-gray-600 dark:text-gray-400 hover:text-accent" href="https://www.instagram.com/ludin.nento/" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
-                        <span class="flex-1">Instagram</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </a>
-                    <a class="flex items-center gap-2.5 group text-gray-600 dark:text-gray-400 hover:text-accent" href="https://medium.com/@ludyyn" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.38-2.88-3.38-6.42s1.51-6.42 3.38-6.42c1.87 0 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75c.66 0 1.19 2.58 1.19 5.75z" /></svg>
-                        <span class="flex-1">Medium</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </a>
-                </div>
-            </section>
-
-            <section>
                 <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-3">Skills</h2>
 
                 <div class="mb-3">
@@ -277,10 +270,28 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="mb-3">
                     <h3 class="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-600 mb-1.5">Platforms</h3>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg><span>IoT</span></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <h3 class="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-600 mb-1.5">Tools &amp; DevOps</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg><span>Docker</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.143 5.143 0 0 0-.73 3.255l2.514-.725.002-.009zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.144 5.144 0 0 0-3.01 1.442l2.147 1.523.004-.002zm.76 2.75l.723.349.722-.347.18-.78-.5-.623h-.804l-.5.623.179.779zm1.5-3.095a.44.44 0 0 0 .7.336l.008.003 2.134-1.513a5.188 5.188 0 0 0-2.992-1.442l.148 2.615.002.001zm10.876 5.97l-5.773 7.181a1.6 1.6 0 0 1-1.248.594l-9.261.003a1.6 1.6 0 0 1-1.247-.596l-5.776-7.18a1.583 1.583 0 0 1-.307-1.34L2.1 5.573c.108-.47.425-.864.863-1.073L11.305.513a1.606 1.606 0 0 1 1.385 0l8.345 3.985c.438.209.755.604.863 1.073l2.062 8.955c.108.47-.005.963-.308 1.34zm-3.289-2.057c-.042-.01-.103-.026-.145-.034-.174-.033-.315-.025-.479-.038-.35-.037-.638-.067-.895-.148-.105-.04-.18-.165-.216-.216l-.201-.059a6.45 6.45 0 0 0-.105-2.332 6.465 6.465 0 0 0-.936-2.163c.052-.047.15-.133.177-.159.008-.09.001-.183.094-.282.197-.185.444-.338.743-.522.142-.084.273-.137.415-.242.032-.024.076-.062.11-.089.24-.191.295-.52.123-.736-.172-.216-.506-.236-.745-.045-.034.027-.08.062-.111.088-.134.116-.217.23-.33.35-.246.25-.45.458-.673.609-.097.056-.239.037-.303.033l-.19.135a6.545 6.545 0 0 0-4.146-2.003l-.012-.223c-.065-.062-.143-.115-.163-.25-.022-.268.015-.557.057-.905.023-.163.061-.298.068-.475.001-.04-.001-.099-.001-.142 0-.306-.224-.555-.5-.555-.275 0-.499.249-.499.555l.001.014c0 .041-.002.092 0 .128.006.177.044.312.067.475.042.348.078.637.056.906a.545.545 0 0 1-.162.258l-.012.211a6.424 6.424 0 0 0-4.166 2.003 8.373 8.373 0 0 1-.18-.128c-.09.012-.18.04-.297-.029-.223-.15-.427-.358-.673-.608-.113-.12-.195-.234-.329-.349-.03-.026-.077-.062-.111-.088a.594.594 0 0 0-.348-.132.481.481 0 0 0-.398.176c-.172.216-.117.546.123.737l.007.005.104.083c.142.105.272.159.414.242.299.185.546.338.743.522.076.082.09.226.1.288l.16.143a6.462 6.462 0 0 0-1.02 4.506l-.208.06c-.055.072-.133.184-.215.217-.257.081-.546.11-.895.147-.164.014-.305.006-.48.039-.037.007-.09.02-.133.03l-.004.002-.007.002c-.295.071-.484.342-.423.608.061.267.349.429.645.365l.007-.001.01-.003.129-.029c.17-.046.294-.113.448-.172.33-.118.604-.217.87-.256.112-.009.23.069.288.101l.217-.037a6.5 6.5 0 0 0 2.88 3.596l-.09.218c.033.084.069.199.044.282-.097.252-.263.517-.452.813-.091.136-.185.242-.268.399-.02.037-.045.095-.064.134-.128.275-.034.591.213.71.248.12.556-.007.69-.282v-.002c.02-.039.046-.09.062-.127.07-.162.094-.301.144-.458.132-.332.205-.68.387-.897.05-.06.13-.082.215-.105l.113-.205a6.453 6.453 0 0 0 4.609.012l.106.192c.086.028.18.042.256.155.136.232.229.507.342.84.05.156.074.295.145.457.016.037.043.09.062.129.133.276.442.402.69.282.247-.118.341-.435.213-.71-.02-.039-.045-.096-.065-.134-.083-.156-.177-.261-.268-.398-.19-.296-.346-.541-.443-.793-.04-.13.007-.21.038-.294-.018-.022-.059-.144-.083-.202a6.499 6.499 0 0 0 2.88-3.622c.064.01.176.03.213.038.075-.05.144-.114.28-.104.266.039.54.138.87.256.154.06.277.128.448.173.036.01.088.019.13.028l.009.003.007.001c.297.064.584-.098.645-.365.06-.266-.128-.537-.423-.608zM16.4 9.701l-1.95 1.746v.005a.44.44 0 0 0 .173.757l.003.01 2.526.728a5.199 5.199 0 0 0-.108-1.674A5.208 5.208 0 0 0 16.4 9.7zm-4.013 5.325a.437.437 0 0 0-.404-.232.44.44 0 0 0-.372.233h-.002l-1.268 2.292a5.164 5.164 0 0 0 3.326.003l-1.27-2.296h-.01zm1.888-1.293a.44.44 0 0 0-.27.036.44.44 0 0 0-.214.572l-.003.004 1.01 2.438a5.15 5.15 0 0 0 2.081-2.615l-2.6-.44-.004.005z"/></svg><span>Kubernetes</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M22.727 9.007a.713.713 0 01-.726.855h-1.542V8.798h.468a.883.883 0 00.875-.875v-.388c0-.477.12-.875.269-.875.139 0 .328.388.407.865l.249 1.482zm-3.49-1.253c.486 0 .874.388.894.885v4.555a.883.883 0 01-.875.875h-2.357a.883.883 0 01-.875-.875v-1.79a.871.871 0 00-.348.696v1.502c0 .477.397.875.875.875h1.531v2.327a.535.535 0 01-.537.538h-2.884a.535.535 0 01-.537-.538v-2.168a.535.535 0 00-.537-.537h-7.2a.535.535 0 00-.538.537v2.168a.535.535 0 01-.537.538H2.428a.535.535 0 01-.537-.538V10.58L.588 11.603c-.06.04-.14.04-.189-.02l-.368-.438a.135.135 0 01-.01-.159l1.91-2.914a.536.536 0 01.487-.318h10.165a.54.54 0 01.527.627l-.21 1.243a.54.54 0 00.528.626h2.039a.535.535 0 00.527-.437c-.13.04-.269.06-.418.06h-1.452c-.487 0-.815-.388-.736-.866l.249-1.482c.08-.477.258-.865.407-.865.15 0 .269.398.269.875v.229c.02-.01.05-.01.08-.01h4.843zm3.65-.537c0-.388.288-.557.556-.557.269 0 .557.17.557.557 0 .378-.288.547-.557.547-.268 0-.557-.17-.557-.547zm.984 0c0-.308-.2-.438-.418-.438-.219 0-.428.13-.428.438 0 .298.21.438.428.438.219-.01.418-.14.418-.438zm-.607-.279h.199c.1 0 .199.03.199.17 0 .08-.06.129-.13.149l.13.228h-.12l-.119-.218h-.05v.218h-.109v-.547zm.199.25c.05 0 .09-.03.09-.08 0-.06-.05-.07-.09-.07h-.1v.15h.1z"/></svg><span>Rancher</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="m12.004 0-10.4 6v12l10.392 6 10.4-6V6L12.004 0zm4.639 13.204-2.77 1.6-3.347-1.832v3.826l-3.144 1.995V10.8L9.88 9.272l3.462 1.823V7.191l3.301-1.984v7.997z"/></svg><span>Nomad</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M23.035 9.601h-7.677a.956.956 0 01-.962-.962V.962a.956.956 0 00-.962-.956H10.56a.956.956 0 00-.962.956V8.64a.956.956 0 01-.962.962H5.762a.956.956 0 01-.961-.962V.962A.956.956 0 003.839 0H.959a.956.956 0 00-.956.962v22.076A.956.956 0 00.965 24h22.07a.956.956 0 00.962-.962V10.58a.956.956 0 00-.962-.98zm-3.86 8.152a1.437 1.437 0 01-1.437 1.443h-1.924a1.437 1.437 0 01-1.436-1.443v-1.917a1.437 1.437 0 011.436-1.443h1.924a1.437 1.437 0 011.437 1.443z"/></svg><span>RabbitMQ</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M10.657 23.994h-9.45A1.212 1.212 0 0 1 0 22.788v-9.18h.071c5.784 0 10.504 4.65 10.586 10.386Zm7.606 0h-4.045C14.135 16.246 7.795 9.977 0 9.942V6.038h.071c9.983 0 18.121 8.044 18.192 17.956Zm4.53 0h-.97C21.754 12.071 11.995 2.407 0 2.372v-1.16C0 .55.544.006 1.207.006h7.64C15.733 2.49 21.257 7.789 24 14.508v8.291c0 .663-.544 1.195-1.207 1.195ZM16.713.006h6.092A1.19 1.19 0 0 1 24 1.2v5.914c-.91-1.242-2.046-2.65-3.158-3.762C19.588 2.11 18.122.987 16.714.005Z"/></svg><span>MQTT</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.504.504 0 0 1-.354.146zm9.353-.147l1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001zM4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85zm2.03-2.436L4 6.602V3.406l2.557 1.61zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3h-2.08a3.503 3.503 0 0 1-3.46 3 3.502 3.502 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.502 3.502 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.008 5.008 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.482 2.482 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.502 3.502 0 0 1 3.46 3h2.08a3.503 3.503 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5zm-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5zM5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4zm9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm12 0c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3.002c-.007.001-.013.005-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.503 3.503 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5zm-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5z"/></svg><span>GitHub Actions</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M.778 1.213a.768.768 0 00-.768.892l3.263 19.81c.084.5.515.868 1.022.873H19.95a.772.772 0 00.77-.646l3.27-20.03a.768.768 0 00-.768-.891zM14.52 15.53H9.522L8.17 8.466h7.561z"/></svg><span>Bitbucket CI/CD</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg><span>Jira</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M5.385 6.136c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-1.438 2.63c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.644-1.461-1.438-1.461zm5.465-2.63c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.499-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zm-1.088 5.592c.794 0 1.438-.654 1.438-1.461s-.644-1.461-1.438-1.461-1.438.654-1.438 1.461.643 1.461 1.438 1.461zm5.464-5.592c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111S11.4 7.247 12 7.247s1.088-.498 1.088-1.111zm.35-4.675c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461S11.206 0 12 0s1.438.654 1.438 1.461zm-.35 0C13.088.848 12.6.35 12 .35s-1.088.498-1.088 1.111S11.4 2.572 12 2.572s1.088-.498 1.088-1.111zm.35 8.806c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.499 1.088-1.111zm4.376-4.131c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zm2.939 1.461c.794 0 1.438-.654 1.438-1.461s-.644-1.461-1.438-1.461-1.438.654-1.438 1.461.644 1.461 1.438 1.461zm-4.027 1.209c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.643-1.461-1.438-1.461zm4.027 0c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.644-1.461-1.438-1.461zM3.947 12.857a1.45 1.45 0 0 0-1.438 1.461c0 .807.644 1.461 1.438 1.461s1.438-.654 1.438-1.461a1.45 1.45 0 0 0-1.438-1.461zm5.465 1.5c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.655 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zM12 12.896c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.644-1.461-1.438-1.461zm5.464 1.461c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.655 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zm2.939-1.461c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.644-1.461-1.438-1.461zM3.947 16.948c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.644-1.461-1.438-1.461zm5.465 1.5c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zm4.376 0c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zm.35 4.091c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111S11.4 23.65 12 23.65s1.088-.498 1.088-1.111zm4.376-4.091c0 .807-.644 1.461-1.438 1.461s-1.438-.654-1.438-1.461.644-1.461 1.438-1.461 1.438.654 1.438 1.461zm-.35 0c0-.613-.488-1.111-1.088-1.111s-1.088.498-1.088 1.111.488 1.111 1.088 1.111 1.088-.498 1.088-1.111zm2.939-1.461c-.794 0-1.438.654-1.438 1.461s.644 1.461 1.438 1.461 1.438-.654 1.438-1.461-.644-1.461-1.438-1.461z"/></svg><span>Metabase</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.9004 9.3763a8.1488 8.1488 0 0 0-3.0421-3.1206l1.7708.8385a10.2874 10.2874 0 0 1 3.74 3.0007l3.234-5.9295a2.8546 2.8546 0 0 0-.0611-2.9604C22.7566.0371 21.2112-.3409 19.9754.3327l-5.8749 3.2101a4.3612 4.3612 0 0 1-4.1761 0L4.1769.408a2.8545 2.8545 0 0 0-2.9592.0632c-1.1673.7853-1.5452 2.33-.8723 3.5655L3.55 9.9106a4.3612 4.3612 0 0 1 0 4.1772l-3.1272 5.743a2.86 2.86 0 0 0 .085 2.9974c.794 1.1438 2.3225 1.5054 3.5448.8385l6.0581-3.3049a10.2877 10.2877 0 0 1-3.0051-3.7454l-.8374-1.7708a8.148 8.148 0 0 0 3.1206 3.0421l10.5832 5.779c1.2213.666 2.7481.3055 3.5426-.8363a2.8699 2.8699 0 0 0 .0796-3.0018L17.9004 9.3763zm3.3801-7.7351c.6022 0 1.0904.4882 1.0904 1.0904s-.4882 1.0904-1.0904 1.0904-1.0904-.4882-1.0904-1.0904.4882-1.0904 1.0904-1.0904zM2.7442 3.822c-.6022 0-1.0904-.4882-1.0904-1.0904s.4882-1.0904 1.0904-1.0904 1.0904.4882 1.0904 1.0904S3.3464 3.822 2.7442 3.822zm0 18.5363c-.6022 0-1.0904-.4882-1.0904-1.0904 0-.6022.4882-1.0904 1.0904-1.0904s1.0904.4882 1.0904 1.0904c0 .6022-.4882 1.0904-1.0904 1.0904zm10.3585-11.4489c-1.2008-.0035-2.177.9672-2.1805 2.1679a2.1738 2.1738 0 0 0 .7052 1.6091c-1.4872-.2091-2.5234-1.5843-2.3142-3.0716.2091-1.4872 1.5843-2.5234 3.0716-2.3142a2.7194 2.7194 0 0 1 2.3142 2.3142 2.1623 2.1623 0 0 0-1.5963-.7054zm8.1778 11.4489c-.6022 0-1.0904-.4882-1.0904-1.0904 0-.6022.4882-1.0904 1.0904-1.0904s1.0904.4882 1.0904 1.0904c0 .6022-.4882 1.0904-1.0904 1.0904z"/></svg><span>dbt</span></span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.363 0 0 5.363 0 12s5.363 12 12 12 12-5.363 12-12S18.637 0 12 0zM9.502 7.03a4.974 4.974 0 0 1 4.97 4.97 4.974 4.974 0 0 1-4.97 4.97A4.974 4.974 0 0 1 4.532 12a4.974 4.974 0 0 1 4.97-4.97zm6.563 3.183h2.351c.98 0 1.787.782 1.787 1.762s-.807 1.789-1.787 1.789h-2.351v-3.551z"/></svg><span>DuckDB</span></span>
                     </div>
                 </div>
             </section>
@@ -308,8 +319,24 @@
                         <p class="text-[11px] uppercase tracking-widest text-gray-500 mt-0.5">Organizations</p>
                     </div>
                 </div>
-                <div class="gh-chart-scroll rounded-lg border border-gray-200 dark:border-gray-800 overflow-x-auto overscroll-x-contain">
-                    <img src="https://ghchart.rshah.org/216e39/fn-code" alt="Ludin Nento's GitHub contribution activity graph" class="w-full min-w-[600px] block" loading="lazy">
+                <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+                    <div class="gh-chart-scroll overflow-x-auto overscroll-x-contain">
+                        <div id="gh-heatmap" class="gh-heatmap min-w-[680px]" role="img" aria-label="Ludin Nento's GitHub contribution activity graph">
+                            <p class="text-xs text-gray-400 dark:text-gray-600">Loading contribution graph…</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between gap-3 text-[11px] text-gray-400 dark:text-gray-600">
+                        <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile#counting-contributions" target="_blank" rel="noopener" class="hover:text-accent">Learn how we count contributions</a>
+                        <div class="flex items-center gap-1 shrink-0">
+                            <span>Less</span>
+                            <span class="gh-legend-swatch gh-level-0"></span>
+                            <span class="gh-legend-swatch gh-level-1"></span>
+                            <span class="gh-legend-swatch gh-level-2"></span>
+                            <span class="gh-legend-swatch gh-level-3"></span>
+                            <span class="gh-legend-swatch gh-level-4"></span>
+                            <span>More</span>
+                        </div>
+                    </div>
                 </div>
                 <p class="sm:hidden mt-1.5 text-[11px] text-gray-400 dark:text-gray-600">Scroll horizontally to see the full graph →</p>
             </section>
@@ -577,9 +604,51 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <span>Graduated 2018</span>
+                            <span>2013 &ndash; 2018</span>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="social" class="scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-3 pb-2 border-b border-gray-200 dark:border-gray-800">Social</h2>
+                <div class="grid grid-cols-2 gap-2">
+                    <a class="group flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-800 px-2.5 py-2 hover:border-accent/60 hover:bg-accent/5 transition-colors" href="https://github.com/fn-code" target="_blank" rel="noopener">
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+                        </span>
+                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 group-hover:text-accent transition-colors truncate">GitHub</span>
+                    </a>
+                    <a class="group flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-800 px-2.5 py-2 hover:border-accent/60 hover:bg-accent/5 transition-colors" href="https://id.linkedin.com/in/ludin-nento-16469494" target="_blank" rel="noopener">
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                        </span>
+                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 group-hover:text-accent transition-colors truncate">LinkedIn</span>
+                    </a>
+                    <a class="group flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-800 px-2.5 py-2 hover:border-accent/60 hover:bg-accent/5 transition-colors" href="https://twitter.com/fncode" target="_blank" rel="noopener">
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 14-7.496 14-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 0 0 2.46-2.548l-.047-.02z" /></svg>
+                        </span>
+                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 group-hover:text-accent transition-colors truncate">Twitter</span>
+                    </a>
+                    <a class="group flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-800 px-2.5 py-2 hover:border-accent/60 hover:bg-accent/5 transition-colors" href="https://www.facebook.com/ludyn.nento" target="_blank" rel="noopener">
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 1.746-.287 1.921h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg>
+                        </span>
+                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 group-hover:text-accent transition-colors truncate">Facebook</span>
+                    </a>
+                    <a class="group flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-800 px-2.5 py-2 hover:border-accent/60 hover:bg-accent/5 transition-colors" href="https://www.instagram.com/ludin.nento/" target="_blank" rel="noopener">
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                        </span>
+                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 group-hover:text-accent transition-colors truncate">Instagram</span>
+                    </a>
+                    <a class="group flex items-center gap-2.5 rounded-lg border border-gray-200 dark:border-gray-800 px-2.5 py-2 hover:border-accent/60 hover:bg-accent/5 transition-colors" href="https://medium.com/@ludyyn" target="_blank" rel="noopener">
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.38-2.88-3.38-6.42s1.51-6.42 3.38-6.42c1.87 0 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75c.66 0 1.19 2.58 1.19 5.75z" /></svg>
+                        </span>
+                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 group-hover:text-accent transition-colors truncate">Medium</span>
+                    </a>
                 </div>
             </section>
 
@@ -593,6 +662,26 @@
     </div>
 
     <footer class="max-w-7xl mx-auto px-6 py-8 border-t border-gray-200 dark:border-gray-800 text-center text-[11px] text-gray-400 dark:text-gray-600">
+        <div class="flex items-center justify-center gap-3 mb-4">
+            <a href="https://github.com/fn-code" target="_blank" rel="noopener" aria-label="GitHub" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-accent/60 hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+            </a>
+            <a href="https://id.linkedin.com/in/ludin-nento-16469494" target="_blank" rel="noopener" aria-label="LinkedIn" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-accent/60 hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+            </a>
+            <a href="https://twitter.com/fncode" target="_blank" rel="noopener" aria-label="Twitter" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-accent/60 hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 14-7.496 14-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 0 0 2.46-2.548l-.047-.02z" /></svg>
+            </a>
+            <a href="https://www.facebook.com/ludyn.nento" target="_blank" rel="noopener" aria-label="Facebook" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-accent/60 hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 1.746-.287 1.921h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg>
+            </a>
+            <a href="https://www.instagram.com/ludin.nento/" target="_blank" rel="noopener" aria-label="Instagram" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-accent/60 hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+            </a>
+            <a href="https://medium.com/@ludyyn" target="_blank" rel="noopener" aria-label="Medium" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-accent/60 hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.38-2.88-3.38-6.42s1.51-6.42 3.38-6.42c1.87 0 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75c.66 0 1.19 2.58 1.19 5.75z" /></svg>
+            </a>
+        </div>
         <p>&copy; 2026 Ludin Nento — fn-code</p>
     </footer>
 
@@ -753,6 +842,57 @@
 
         renderBlog();
 
+        function renderGithubHeatmap(contributions) {
+            let el = document.getElementById('gh-heatmap');
+            if (!contributions || !contributions.length) {
+                el.innerHTML = '<p class="text-xs text-gray-400 dark:text-gray-600">No contribution data available.</p>';
+                return;
+            }
+
+            const CELL = 11;
+            const DOW_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+            const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            let first = new Date(contributions[0].date + 'T00:00:00');
+            let startDow = first.getDay();
+            let padded = new Array(startDow).fill(null).concat(contributions);
+            let numCols = Math.ceil(padded.length / 7);
+
+            let cellsHtml = '';
+            padded.forEach((day, i) => {
+                if (!day) return;
+                let col = Math.floor(i / 7) + 1;
+                let row = (i % 7) + 1;
+                let d = new Date(day.date + 'T00:00:00');
+                let dateLabel = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                let title = (day.count === 0 ? 'No contributions' : day.count + ' contribution' + (day.count === 1 ? '' : 's')) + ' on ' + dateLabel;
+                cellsHtml += '<span class="gh-cell gh-level-' + day.level + '" style="grid-column:' + col + ';grid-row:' + row + '" title="' + title + '"></span>';
+            });
+
+            let monthsHtml = '';
+            let lastMonth = -1;
+            for (let col = 0; col < numCols; col++) {
+                let d = null;
+                for (let r = 0; r < 7; r++) {
+                    let item = padded[col * 7 + r];
+                    if (item) { d = new Date(item.date + 'T00:00:00'); break; }
+                }
+                if (!d) continue;
+                let m = d.getMonth();
+                if (m !== lastMonth) {
+                    lastMonth = m;
+                    monthsHtml += '<span class="gh-month" style="grid-column:' + (col + 1) + '">' + MONTH_NAMES[m] + '</span>';
+                }
+            }
+
+            let daysHtml = DOW_LABELS.map((lab, i) => '<span class="gh-daylabel" style="grid-row:' + (i + 1) + '">' + lab + '</span>').join('');
+
+            el.innerHTML =
+                '<div class="gh-months" style="grid-template-columns:repeat(' + numCols + ', ' + CELL + 'px)">' + monthsHtml + '</div>' +
+                '<div class="gh-days">' + daysHtml + '</div>' +
+                '<div class="gh-cells" style="grid-template-columns:repeat(' + numCols + ', ' + CELL + 'px)">' + cellsHtml + '</div>';
+        }
+
         async function renderGithubStats() {
             let contribEl = document.querySelector('.stat-contributions');
             let reposEl = document.querySelector('.stat-repos');
@@ -762,7 +902,7 @@
                 let [userRes, orgsRes, contribRes] = await Promise.all([
                     fetch('https://api.github.com/users/fn-code'),
                     fetch('https://api.github.com/users/fn-code/orgs'),
-                    fetch('https://github-contributions-api.jogruber.de/v4/fn-code'),
+                    fetch('https://github-contributions-api.jogruber.de/v4/fn-code?y=last'),
                 ]);
 
                 let user = await userRes.json();
@@ -774,11 +914,15 @@
 
                 let totalContributions = Object.values(contrib.total).reduce((sum, n) => sum + n, 0);
                 contribEl.textContent = totalContributions.toLocaleString();
+
+                renderGithubHeatmap(contrib.contributions);
             } catch (error) {
                 console.log(error);
                 contribEl.textContent = 'N/A';
                 reposEl.textContent = 'N/A';
                 orgsEl.textContent = 'N/A';
+                let el = document.getElementById('gh-heatmap');
+                if (el) el.innerHTML = '<p class="text-xs text-gray-400 dark:text-gray-600">Unable to load contribution graph.</p>';
             }
         }
 
